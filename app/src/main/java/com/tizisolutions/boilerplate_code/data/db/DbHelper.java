@@ -1,9 +1,5 @@
 package com.tizisolutions.boilerplate_code.data.db;
 
-import android.database.Observable;
-
-import java.util.List;
-
 /**
  * Created by billionaire on 23/04/2017.
  *

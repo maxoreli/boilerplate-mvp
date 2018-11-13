@@ -3,6 +3,8 @@ package com.tizisolutions.boilerplate_code.data.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.tizisolutions.boilerplate_code.data.model.MSession;
+import com.tizisolutions.boilerplate_code.data.model.User;
 import com.tizisolutions.boilerplate_code.di.ApplicationContext;
 import com.tizisolutions.boilerplate_code.di.PreferenceInfo;
 
@@ -34,5 +36,50 @@ public class AppPreferencesHelper implements PreferencesHelper {
     @Inject
     public AppPreferencesHelper(@ApplicationContext Context context, @PreferenceInfo String prefFileName) {
         mPrefs = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE);
+    }
+
+    @Override
+    public void setCurrentUserLoggedIn(User object) {
+
+    }
+
+    @Override
+    public User getCurrentUserLoggedIn() {
+        return null;
+    }
+
+    @Override
+    public void removeCurrentUser() {
+
+    }
+
+    @Override
+    public String getRegToken() {
+        return null;
+    }
+
+    @Override
+    public void setRegTokenSent() {
+
+    }
+
+    @Override
+    public boolean isTokenSent() {
+        return false;
+    }
+
+    @Override
+    public void setFbRefreshToken(String token) {
+
+    }
+
+    @Override
+    public void saveSession(MSession session) {
+
+    }
+
+    @Override
+    public MSession getSession() {
+        return null;
     }
 }

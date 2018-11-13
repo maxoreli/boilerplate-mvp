@@ -1,7 +1,5 @@
 package com.tizisolutions.boilerplate_code.data.network;
 
-import com.tizisolutions.boilerplate_code.BuildConfig;
-
 /**
  * Created by billionaire on 24/04/2017.
  */

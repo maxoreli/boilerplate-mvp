@@ -19,19 +19,12 @@ package com.tizisolutions.boilerplate_code.ui.base;
  * Created by janisharali on 27/01/17.
  */
 
-import android.util.Log;
-
-import com.androidnetworking.common.ANConstants;
 import com.androidnetworking.error.ANError;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 import com.tizisolutions.boilerplate_code.data.DataManager;
-import com.tizisolutions.boilerplate_code.utils.AppConstants;
 
 
 import javax.inject.Inject;
-import javax.net.ssl.HttpsURLConnection;
+
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -48,6 +41,17 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     private final CompositeDisposable mCompositeDisposable;
 
     private V mMvpView;
+
+
+    public interface ApiListener<R,E> {
+        void  onSuccess(R value);
+        void  onError(E error);
+    }
+    public interface CacheApiListener<R,E>  {
+        void  onSuccess(R value,boolean cached);
+        void  onError(E error);
+    }
+
 
     @Inject
     public BasePresenter(DataManager dataManager, CompositeDisposable compositeDisposable) {

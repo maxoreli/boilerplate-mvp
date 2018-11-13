@@ -16,6 +16,9 @@
 package com.tizisolutions.boilerplate_code.data.prefs;
 
 
+import com.tizisolutions.boilerplate_code.data.model.MSession;
+import com.tizisolutions.boilerplate_code.data.model.User;
+
 /**
  * Created by janisharali on 27/01/17.
  *
@@ -23,9 +26,15 @@ package com.tizisolutions.boilerplate_code.data.prefs;
  */
 
 public interface PreferencesHelper {
+    void setCurrentUserLoggedIn(User object);
+    User getCurrentUserLoggedIn();
+    void removeCurrentUser();
+    String getRegToken();
+    void setRegTokenSent();
+    boolean isTokenSent();
 
-   /* int getCurrentUserLoggedInMode();
-    void setCurrentUserLoggedInMode(DataManager.LoggedInMode mode);*/
-
+    void setFbRefreshToken(String token);
+    void saveSession(MSession session);
+    MSession getSession();
 
 }

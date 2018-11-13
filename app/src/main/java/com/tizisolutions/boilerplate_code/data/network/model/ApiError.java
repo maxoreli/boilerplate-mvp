@@ -22,7 +22,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by janisharali on 28/01/17.
  */
 
-public class ApiError {
+public class ApiError  extends Throwable {
 
     private int errorCode;
 
@@ -38,6 +38,11 @@ public class ApiError {
         this.errorCode = errorCode;
         this.statusCode = statusCode;
         this.message = message;
+    }
+
+    public ApiError(String message, Throwable throwable) {
+        super(message, throwable);
+
     }
 
     public int getErrorCode() {

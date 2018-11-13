@@ -24,14 +24,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.tizisolutions.boilerplate_code.MyApp;
-import com.tizisolutions.boilerplate_code.R;
 import com.tizisolutions.boilerplate_code.di.component.ActivityComponent;
 import com.tizisolutions.boilerplate_code.di.component.DaggerActivityComponent;
 import com.tizisolutions.boilerplate_code.di.module.ActivityModule;

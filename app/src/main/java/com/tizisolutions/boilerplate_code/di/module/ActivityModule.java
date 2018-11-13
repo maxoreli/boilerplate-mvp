@@ -20,7 +20,6 @@ import android.content.Context;
 
 
 import com.tizisolutions.boilerplate_code.di.ActivityContext;
-import com.tizisolutions.boilerplate_code.di.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;
