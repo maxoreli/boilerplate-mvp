@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Boilerplate-code.iml" filepath="$PROJECT_DIR$/Boilerplate-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MultiStateView/MultiStateView.iml" filepath="$PROJECT_DIR$/MultiStateView/MultiStateView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boilerplate_mvp.iml" filepath="$PROJECT_DIR$/boilerplate_mvp.iml" />
     </modules>
   </component>
 </project>

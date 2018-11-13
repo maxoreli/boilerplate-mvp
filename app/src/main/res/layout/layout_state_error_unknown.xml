@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Shows an indication of an unknown error -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:clickable="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/ic_error_server_gray_24dp"
+       />
+
+    <TextView
+        android:id="@+id/error_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/error_title_unknown"
+        android:textColor="@color/secondary_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        />
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/tap_to_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/green"
+        android:textColor="@color/white"
+        android:text="@string/tap_to_retry"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        />
+
+</LinearLayout>

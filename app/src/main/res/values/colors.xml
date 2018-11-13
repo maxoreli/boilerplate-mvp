@@ -3,4 +3,56 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="white_light">#baffffff</color>
+    <color name="colorGrey_300">#E0E0E0</color>
+    <color name="colorGrey_100">#F5F5F5</color>
+    <color name="colorGrey_50">#FAFAFA</color>
+    <color name="colorGrey_1">#828282</color>
+    <color name="divider">#61686D</color>
+    <!-- <color name="red">#ffe74c3c</color>-->
+    <color name="red_dark">#ffc0392b</color>
+    <color name="m_selected_overlay">#82cce8cc</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gris">#727272</color>
+    <color name="bleu_nuit">#34495e</color>
+    <color name="jaune">#fec107</color>
+    <color name="alphabet_background_color">#ffffff</color>
+    <color name="alphabet_background_border_color">#ffffff</color>
+
+
+    <color name="cardview_initial_background">#71C3DE</color>
+    <color name="blue">#FF375BF1</color>
+    <color name="yellow">#FFF7D23E</color>
+    <!-- <color name="green">#FF34A350</color>-->
+
+    <!--<color name="gray">#9e9e9e</color>-->
+    <color name="dark_blue">#01579b</color>
+    <color name="transparent_black">#45040303</color>
+    <color name="light_gray">#e0e0e0</color>
+    <color name="colorAccent_light">#4ACB45FF</color>
+    <color name="backcolor">#b5000029</color>
+
+    <color name="gray">#9e9e9e</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="color_1">#DB4437</color>
+    <color name="color_2">#E91E63</color>
+    <color name="color_3">#FF5722</color>
+    <color name="color_4">#EF6C00</color>
+    <color name="green">#689F38</color>
+    <color name="color_6">#0097A7</color>
+    <color name="color_7">#4285F4</color>
+    <color name="color_8">#039BE5</color>
+    <color name="color_9">#3F51B5</color>
+    <color name="color_10">#673AB7</color>
+    <color name="color_11">#757575</color>
+    <color name="colorPrimaryLightLine">#EEF3FE</color>
+    <color name="colorPrimaryWhatsApp">#075E54</color>
+    <color name="colorPrimaryDarkWhatsApp">#054D44</color>
 </resources>

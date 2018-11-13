@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'bintray-release'
+android {
+    publishNonDefault true
+    compileSdkVersion project.ext.ANDROID_COMPILE_SDK_VERSION
+    //buildToolsVersion '27.0.3' //'21.1.1'
+    defaultConfig {
+        minSdkVersion project.ext.MIN_SDK
+        targetSdkVersion project.ext.ANDROID_BUILD_TARGET_SDK_VERSION
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+
+    }
+    buildTypes {
+        release {
+        }
+        debug {
+        }
+        local  {
+            debuggable true
+
+        }
+    }
+
+    dependencies {
+        compile "com.android.support:support-annotations:$project.ext.ANDROID_SUPPORT_VERSION"
+    }
+/*
+    publish {
+        bintrayUser = project.BINTRAY_USER
+        bintrayKey = project.BINTRAY_API_KEY
+        dryRun = false;
+        groupId = 'com.kennyc'
+        artifactId = 'multistateview'
+        version = project.VERSION
+        website = 'https://github.com/Kennyc1012/MultiStateView'
+        description = 'Android View that displays different content based on its state'
+        issueTracker = "${website}/issues"
+        repository = "${website}.git"
+    }*/
+
+}
+

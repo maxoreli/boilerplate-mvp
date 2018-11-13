@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Shows an indication of a network error -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/transparent"
+    android:clickable="true"
+    android:descendantFocusability="beforeDescendants"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription=""
+        app:srcCompat="@drawable/ic_no_connection_gray_24dp_wrapped"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/error_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/error_title_network"
+        android:textColor="@color/colorPrimary"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        />
+
+
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/error_subtitle_network"
+        android:textColor="@color/secondary_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+         />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/tap_to_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/green"
+        android:textColor="@color/white"
+        android:text="@string/tap_to_retry"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        />
+
+</LinearLayout>

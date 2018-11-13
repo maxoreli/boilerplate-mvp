@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="label_loading">Chargement..</string>
+    <string name="tap_to_retry">Réessayer</string>
+    <string name="error_title_unknown">Une erreur s\'est produite</string>
+    <string name="error_title_network">Aucune connexion Internet.</string>
+    <string name="error_subtitle_network">Vérifiez vos données mobiles ou votre Wi-Fi.</string>
+    <string name="text_empty_data">Aucune donnée</string>
 </resources>

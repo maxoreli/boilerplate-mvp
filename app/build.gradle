@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
 
     // android support libraries
     compile "com.android.support:appcompat-v7:$project.ext.ANDROID_SUPPORT_VERSION"
@@ -43,7 +43,6 @@ dependencies {
     compile "com.android.support:design:$project.ext.ANDROID_SUPPORT_VERSION"
     compile "com.android.support:support-vector-drawable:$project.ext.ANDROID_SUPPORT_VERSION"
     compile "com.android.support:animated-vector-drawable:$project.ext.ANDROID_SUPPORT_VERSION"
-
 
     //reactive
     compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
@@ -78,14 +77,13 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
 
-
     // logger
     compile "com.jakewharton.timber:timber:$rootProject.timberVersion"
-
 
     //for test
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    implementation project(':MultiStateView')
 }
