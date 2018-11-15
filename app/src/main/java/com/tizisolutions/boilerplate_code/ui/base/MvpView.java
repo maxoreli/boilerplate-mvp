@@ -42,4 +42,7 @@ public interface MvpView {
 
     void hideKeyboard();
 
+    void showToast(String text, int gravity);
+
+    void showToast(@StringRes int text, int gravity);
 }

@@ -20,12 +20,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 
 import com.tizisolutions.boilerplate_code.di.component.ActivityComponent;
 
 import butterknife.Unbinder;
+import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -134,5 +136,24 @@ public abstract class BaseFragment extends Fragment implements MvpView {
 
         void onFragmentAttached();
         void onFragmentDetached(String tag);
+    }
+
+    protected LinearLayoutManager createNewLinearLayoutManager() {
+        SmoothScrollLinearLayoutManager smoothScrollLinearLayoutManager = new SmoothScrollLinearLayoutManager(getActivity());
+        smoothScrollLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        return smoothScrollLinearLayoutManager;
+    }
+
+    protected LinearLayoutManager createNewLinearLayoutManager(int orientation) {
+        SmoothScrollLinearLayoutManager smoothScrollLinearLayoutManager = new SmoothScrollLinearLayoutManager(getActivity());
+        smoothScrollLinearLayoutManager.setOrientation(orientation);
+        return smoothScrollLinearLayoutManager;
+    }
+
+
+    protected LinearLayoutManager createNewGridLayoutManager() {
+        SmoothScrollLinearLayoutManager smoothScrollLinearLayoutManager = new SmoothScrollLinearLayoutManager(getActivity());
+        smoothScrollLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        return smoothScrollLinearLayoutManager;
     }
 }

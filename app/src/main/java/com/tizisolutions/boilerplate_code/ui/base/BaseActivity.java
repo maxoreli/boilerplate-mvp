@@ -24,12 +24,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tizisolutions.boilerplate_code.MyApp;
+import com.tizisolutions.boilerplate_code.R;
 import com.tizisolutions.boilerplate_code.di.component.ActivityComponent;
 import com.tizisolutions.boilerplate_code.di.component.DaggerActivityComponent;
 import com.tizisolutions.boilerplate_code.di.module.ActivityModule;
@@ -49,6 +53,9 @@ public abstract class BaseActivity extends AppCompatActivity
     private ProgressDialog mProgressDialog;
     private ActivityComponent mActivityComponent;
     private Unbinder mUnBinder;
+    protected Fragment mFragment;
+    public static final String STATE_ACTIVE_FRAGMENT = "active_fragment";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,6 +74,50 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+
+    protected void initializeFragment(Bundle savedInstanceState, Fragment initFrag) {
+        if (savedInstanceState != null) {
+            mFragment = getSupportFragmentManager().getFragment(savedInstanceState, STATE_ACTIVE_FRAGMENT);
+        }
+        if (mFragment == null) {
+            mFragment = initFrag;
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.container, mFragment).commit();
+    }
+
+    public void changeFragment(Class fragmentClass) {
+
+        //SchoolFragment.class;
+        try {
+            mFragment = (Fragment) fragmentClass.newInstance();
+            //Inflate the new Fragment with the new RecyclerView and a new Adapter
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            //fragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
+
+            android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            fragmentTransaction.replace(R.id.container, mFragment).commit();
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeFragment(Fragment fragment) {
+
+        mFragment = fragment;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        //fragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.container, mFragment).commit();
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -94,6 +145,25 @@ public abstract class BaseActivity extends AppCompatActivity
             mProgressDialog.cancel();
         }
     }
+
+    @Override
+    public void showToast(String text, int gravity) {
+
+        Toast toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
+        toast.setGravity(gravity, 0, 0);
+        toast.show();
+    }
+
+
+    @Override
+    public void showToast(@StringRes int text, int gravity) {
+
+        Toast toast = Toast.makeText(this, getResources().getString(text), Toast.LENGTH_LONG);
+        toast.setGravity(gravity, 0, 0);
+        toast.show();
+    }
+
+
 
     @Override
     public void onError(String message) {
