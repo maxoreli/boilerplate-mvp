@@ -29,6 +29,8 @@ import android.support.annotation.StringRes;
 public interface MvpView {
 
     void showLoading();
+    void showLoading(String text);
+    void showLoading(@StringRes int res);
 
     void hideLoading();
 

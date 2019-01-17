@@ -24,6 +24,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
 
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.tizisolutions.boilerplate_code.R;
+import com.tizisolutions.boilerplate_code.ui.base.BaseActivity;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -89,5 +93,15 @@ public final class CommonUtils {
 
     public static String getTimeStamp() {
         return new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.US).format(new Date());
+    }
+
+    public static MaterialDialog showLoadingDialog2(Context context, String text) {
+
+        return new MaterialDialog.Builder(context)
+                //.theme(R.style.ProgressDialogTheme)
+                .title(R.string.app_name)
+                .content(text)
+                .progress(true, 0)
+                .show();
     }
 }

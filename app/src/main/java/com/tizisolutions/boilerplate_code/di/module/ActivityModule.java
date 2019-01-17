@@ -20,6 +20,8 @@ import android.content.Context;
 
 
 import com.tizisolutions.boilerplate_code.di.ActivityContext;
+import com.tizisolutions.boilerplate_code.utils.rx.AppSchedulerProvider;
+import com.tizisolutions.boilerplate_code.utils.rx.SchedulerProvider;
 
 import dagger.Module;
 import dagger.Provides;
@@ -53,6 +55,12 @@ public class ActivityModule {
     CompositeDisposable provideCompositeDisposable() {
         return new CompositeDisposable();
     }
+
+    @Provides
+    SchedulerProvider provideSheduler() {
+        return new AppSchedulerProvider();
+    }
+
 
    /* @Provides
     @PerActivity

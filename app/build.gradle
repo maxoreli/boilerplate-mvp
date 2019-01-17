@@ -69,6 +69,7 @@ dependencies {
     compile 'com.afollestad.material-dialogs:commons:0.9.6.0'
     implementation 'eu.davidea:flexible-adapter:5.0.5'
     implementation 'eu.davidea:flexible-adapter-ui:1.0.0-b5'
+    implementation 'com.facebook.fresco:fresco:1.10.0'
 
     // font
     compile "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
@@ -79,6 +80,7 @@ dependencies {
 
     // logger
     compile "com.jakewharton.timber:timber:$rootProject.timberVersion"
+    compile 'com.github.javadev:underscore:1.34'
 
     //for test
     testCompile 'junit:junit:4.12'

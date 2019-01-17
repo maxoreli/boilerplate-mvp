@@ -32,6 +32,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.tizisolutions.boilerplate_code.MyApp;
 import com.tizisolutions.boilerplate_code.R;
 import com.tizisolutions.boilerplate_code.di.component.ActivityComponent;
@@ -54,6 +55,8 @@ public abstract class BaseActivity extends AppCompatActivity
     private ActivityComponent mActivityComponent;
     private Unbinder mUnBinder;
     protected Fragment mFragment;
+    private MaterialDialog mProgressDialog2;
+
     public static final String STATE_ACTIVE_FRAGMENT = "active_fragment";
 
 
@@ -140,9 +143,23 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     @Override
+    public void showLoading(String text) {
+        hideLoading();
+        mProgressDialog2 = CommonUtils.showLoadingDialog2(this, text);
+    }
+
+
+    @Override
+    public void showLoading(@StringRes int res) {
+        hideLoading();
+        mProgressDialog2 = CommonUtils.showLoadingDialog2(this,
+                getResources().getString(res));
+    }
+
+    @Override
     public void hideLoading() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.cancel();
+        if (mProgressDialog2 != null && mProgressDialog2.isShowing()) {
+            mProgressDialog2.cancel();
         }
     }
 

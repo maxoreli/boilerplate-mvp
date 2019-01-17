@@ -18,6 +18,14 @@ package com.tizisolutions.boilerplate_code.data.network.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+
+import okhttp3.ResponseBody;
+import retrofit2.Converter;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 /**
  * Created by janisharali on 28/01/17.
  */
@@ -40,8 +48,18 @@ public class ApiError  extends Throwable {
         this.message = message;
     }
 
+    public ApiError(String message, int errorCode, Throwable throwable) {
+        super(message,throwable);
+        this.errorCode = errorCode;
+        this.message = message;
+    }
+
     public ApiError(String message, Throwable throwable) {
         super(message, throwable);
+
+    }
+
+    public ApiError() {
 
     }
 
@@ -90,4 +108,24 @@ public class ApiError  extends Throwable {
         result = 31 * result + (message != null ? message.hashCode() : 0);
         return result;
     }
+
+    public Throwable getThrowable() {
+        return getCause();
+    }
+
+    public static ApiError parseError(Response<?> response, Retrofit mRetrofit) {
+
+        ApiError error;
+        Converter<ResponseBody, ApiError> converter =
+                mRetrofit.
+                        responseBodyConverter(ApiError.class, new Annotation[0]);
+        try {
+            error = converter.convert(response.errorBody());
+        } catch (IOException e) {
+            error =  new ApiError();
+        }
+
+        return error;
+    }
+
 }

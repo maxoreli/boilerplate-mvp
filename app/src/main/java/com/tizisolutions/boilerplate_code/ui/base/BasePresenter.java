@@ -21,6 +21,7 @@ package com.tizisolutions.boilerplate_code.ui.base;
 
 import com.androidnetworking.error.ANError;
 import com.tizisolutions.boilerplate_code.data.DataManager;
+import com.tizisolutions.boilerplate_code.utils.rx.SchedulerProvider;
 
 
 import javax.inject.Inject;
@@ -39,6 +40,8 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     private final DataManager mDataManager;
 
     private final CompositeDisposable mCompositeDisposable;
+    private final SchedulerProvider mSchedulerProvider;
+
 
     private V mMvpView;
 
@@ -57,7 +60,18 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     public BasePresenter(DataManager dataManager, CompositeDisposable compositeDisposable) {
         this.mDataManager = dataManager;
         this.mCompositeDisposable = compositeDisposable;
+        mSchedulerProvider = null;
+
     }
+
+    public BasePresenter(DataManager dataManager,
+                         SchedulerProvider schedulerProvider,
+                         CompositeDisposable compositeDisposable) {
+        this.mDataManager = dataManager;
+        this.mSchedulerProvider = schedulerProvider;
+        this.mCompositeDisposable = compositeDisposable;
+    }
+
 
     @Override
     public void onAttach(V mvpView) {
@@ -88,6 +102,10 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
     public CompositeDisposable getCompositeDisposable() {
         return mCompositeDisposable;
+    }
+
+    public SchedulerProvider getSchedulerProvider() {
+        return mSchedulerProvider;
     }
 
     @Override

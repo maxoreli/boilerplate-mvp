@@ -9,4 +9,5 @@
     <string name="error_title_network">Aucune connexion Internet.</string>
     <string name="error_subtitle_network">Vérifiez vos données mobiles ou votre Wi-Fi.</string>
     <string name="text_empty_data">Aucune donnée</string>
+    <string name="toast_error_title_network">Aucune connexion internet, veuillez réesayer</string>
 </resources>

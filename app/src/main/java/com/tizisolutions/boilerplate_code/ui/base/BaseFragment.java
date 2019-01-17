@@ -17,13 +17,22 @@ package com.tizisolutions.boilerplate_code.ui.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 
 
+import com.kennyc.view.MultiStateView;
+import com.tizisolutions.boilerplate_code.R;
+import com.tizisolutions.boilerplate_code.data.network.commons.NoInternetException;
+import com.tizisolutions.boilerplate_code.data.network.model.ApiError;
 import com.tizisolutions.boilerplate_code.di.component.ActivityComponent;
 
 import butterknife.Unbinder;
@@ -123,6 +132,67 @@ public abstract class BaseFragment extends Fragment implements MvpView {
     }
 
     protected abstract void setUp(View view);
+
+    @Override
+    public void showLoading(String text) {
+        if (mActivity != null) {
+            mActivity.showLoading(text);
+        }
+    }
+
+    @Override
+    public void showLoading(@StringRes int res) {
+        if (mActivity != null) {
+            mActivity.showLoading(res);
+        }
+    }
+
+    public boolean onNoConnectivityError(ApiError error, MultiStateView multiStateView) {
+
+        if (error.getThrowable() instanceof NoInternetException) {
+            // No internet connection
+            Log.e("Error in view", error.getMessage());
+            multiStateView.setViewState(MultiStateView.ViewState.ERROR_NETWORK);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean onNoConnectivityError(ApiError error) {
+        if (error.getThrowable() instanceof NoInternetException) {
+            // No internet connection
+            Log.e("Error in view", error.getMessage());
+            if (isResumed() && isVisible()) {
+                showToast(getString(R.string.toast_error_title_network), Gravity.CENTER);
+            }
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean onNoConnectivityError(ApiError error, View snackView, @IdRes int anchorID) {
+
+        if (error.getThrowable() instanceof NoInternetException) {
+            // No internet connection
+            Log.e("Error in view", error.getMessage());
+            if (isResumed() && isVisible()) {
+
+                Snackbar snack = Snackbar.make(snackView, R.string.toast_error_title_network,
+                        Snackbar.LENGTH_LONG);
+                CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) snack.getView().getLayoutParams();
+
+                params.setAnchorId(anchorID);//Id for your bottomNavBar or TabLayout
+                params.anchorGravity = Gravity.TOP;
+                params.gravity = Gravity.TOP;
+                snack.getView().setLayoutParams(params);
+                snack.show();
+            }
+            return true;
+        }
+        return false;
+    }
+
 
     @Override
     public void onDestroy() {
