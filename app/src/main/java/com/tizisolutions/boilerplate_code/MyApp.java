@@ -16,6 +16,7 @@
 package com.tizisolutions.boilerplate_code;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor.Level;
@@ -34,7 +35,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  * Created by billionaire on 27/01/17.
  */
 
-public class MyApp extends Application {
+public class MyApp extends MultiDexApplication {
 
     @Inject
     DataManager mDataManager;

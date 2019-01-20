@@ -30,7 +30,7 @@ android {
     }
 
     dependencies {
-        compile "com.android.support:support-annotations:$project.ext.ANDROID_SUPPORT_VERSION"
+        implementation "com.android.support:support-annotations:$project.ext.ANDROID_SUPPORT_VERSION"
     }
 /*
     publish {
