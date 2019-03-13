@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/MultiStateView/MultiStateView.iml" filepath="$PROJECT_DIR$/MultiStateView/MultiStateView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/boilerplate_mvp.iml" filepath="$PROJECT_DIR$/boilerplate_mvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smartcacherxjava2calladapter/smartcacherxjava2calladapter.iml" filepath="$PROJECT_DIR$/smartcacherxjava2calladapter/smartcacherxjava2calladapter.iml" />
     </modules>
   </component>
 </project>

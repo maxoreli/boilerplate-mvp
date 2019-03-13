@@ -1,1 +1,1 @@
-include ':app',':MultiStateView'
+include ':app', ':MultiStateView', ':smartcacherxjava2calladapter'

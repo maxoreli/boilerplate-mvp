@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.tizisolutions.boilerplate_code.data.model.MSession;
 import com.tizisolutions.boilerplate_code.data.network.AppApiHelper;
+import com.tizisolutions.smartcacherxjava2calladapter.CachedResult;
 
 import dimitrovskif.smartcache.SmartCall;
 import io.reactivex.Observable;
@@ -99,6 +100,31 @@ public class UtilsApiHelper {
             return Observable.error(error);
         });
     }
+
+    public <T> boolean cacheSmartFilter(CachedResult<T> response, boolean forceRefresh) {
+        boolean isCached = response.isCached();
+        Timber.w("reqListTimeTable call, isCached=%s", isCached);
+        if (isCached) {
+            if (!forceRefresh) {
+                Timber.w("Cache is here, call callback");
+                return true;
+            } else {
+                Timber.w("Cache is here, but is Refresh so no callback");
+            }
+        } else { //no cache, this is from remote server
+            if (forceRefresh) {
+                Timber.w("It is forceRefresh, call callback");
+                return true;
+            } else if (response.isCacheExists()) {
+                Timber.w("It is auto-refresh, so no callback");
+            } else if (!response.isCacheExists()) {
+                Timber.w("It is first time, call callback");
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 
